@@ -69,7 +69,7 @@ exports.createVenta = async (req, res) => {
 exports.updateVenta = async (req, res) => {
   try {
     const updatedVenta = await Venta.findByIdAndUpdate(
-      req.params.id,
+      req.params._id,
       req.body,
       { new: true, runValidators: true }
     );
@@ -92,7 +92,7 @@ exports.updateVenta = async (req, res) => {
 
 exports.deleteVenta = async (req, res) => {
   try {
-    const deletedVenta = await Venta.findByIdAndDelete(req.params.id);
+    const deletedVenta = await Venta.findByIdAndDelete(req.params._id);
 
     if (!deletedVenta) {
       return res
